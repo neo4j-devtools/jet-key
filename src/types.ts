@@ -141,10 +141,10 @@ export interface JetRegistration {
     ver: SemVerRangeString;
 
     /**
-     * Scope: application specific features or capabilities granted to the registrant.
+     * Scope: application specific features or qualifications granted to the registrant.
      * 
      * For example,
-     * ```pro experimental```
+     * ```pro experimental sitewide```
      * 
      * See {@link https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims}
      */
