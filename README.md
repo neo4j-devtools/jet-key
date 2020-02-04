@@ -2,6 +2,13 @@
 
 A library for enabling users to access software features. 
 
+## Similar to a JWT, but without the 
+
+A "JSON Enablement Token" key is the shape of a JWT and signed like a JWT, but with specific fields that are
+useful for software. A JWT is used to grant an authenticated user access to a protected resource. A JET is used
+to verify that a particular registrant has been granted access to software features. A JWT usually lives for hours
+or days. A JET lasts for a year or more. 
+
 ## Why? 
 
 The historic battles of software publishers versus pirates are mostly over, yet sometimes the internet is not a thing and people still need to manage who gets access to what. 
