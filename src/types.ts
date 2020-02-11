@@ -34,14 +34,22 @@ export interface JetRegistration {
      */
     iat: NumericDate;
 
-    /** Audience: The application enabled by the key. 
-     * Should be a URN of the form "urn:app:domain/app". 
+    /** 
+     * Audience: The application enabled by the key. 
      * 
-     * The 'domain' is the publisher expressed as a registered domain. 
-     * The 'app' is a publisher scoped unique name. 
+     * Should be a URN of the form "urn:app:domain/app",
+     * _or_ a string of the form "domain/app"
+     * _or_ a string of the form "@namespace/app".
      * 
-     * For example, 
+     * Where:
+     * - 'domain' identifies the publisher by fully qualified domain name.
+     * - 'namespace' identifies the publisher by npm registry.  
+     * - 'app' is a publisher scoped unique name. 
+     * 
+     * For example these are all equivalent, 
      * ```"urn:app:neo4j.com/neo4j-desktop"```
+     * ```"neo4j.com/neo4j-desktop"```
+     * ```"@neo4j/neo4j-desktop"```
      * 
      * See {@link https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.3}
      */
@@ -79,6 +87,8 @@ export interface JetRegistration {
      * dBvJIh-H
      * 2WEKaVNO
      * ```
+     * 
+     * See {@link https://tools.ietf.org/html/rfc7519#section-4.1.7}
      */
     jti: Base64String;
 
@@ -104,7 +114,19 @@ export interface JetRegistration {
     email: Email;
 
     /**
-     * User identity: The unique identity of the registrant. 
+     * Organization: the registrant's organization.
+     * 
+     * For example, 
+     * ```"Acme, Inc."```
+     * ```"http://acme.com"```
+     * 
+     * Note: a custom claim
+     */
+    org: StringOrURI;
+
+
+    /**
+     * Subject: The unique identity of the registrant. 
      * 
      * Should be a string containing the unique provider identity plus provider scoped user id
      * of the form "provider|provider-id".
@@ -116,14 +138,16 @@ export interface JetRegistration {
      * 
      * Examples:
      * ```
-     * "user_id":"google-oauth2|123456"
-     * "user_id":"self|7A8CF3A4-272B-46C9-931D-CBD9BCFA4045"
-     * "user_id":"mkto|AZ24L2B"
+     * "sub":"google-oauth2|123456"
+     * "sub":"self|7A8CF3A4-272B-46C9-931D-CBD9BCFA4045"
+     * "sub":"mkto|AZ24L2B"
+     * "sub":"twitter|HoratioDear"
      * ```
      * 
-     * See {@link https://auth0.com/docs/users/normalized/auth0/identify-users}
+     * See {@link https://tools.ietf.org/html/rfc7519#section-4.1.2 | IETF "sub" claim}
+     * See {@link https://auth0.com/docs/users/normalized/auth0/identify-users | user_id format}
      */
-    user_id: PipedString;
+    sub: PipedString;
 
     /**
      * Version: SemVer range of versions enabled by the key. 
@@ -146,6 +170,7 @@ export interface JetRegistration {
      * For example,
      * ```pro experimental sitewide```
      * 
+     * See {@link https://tools.ietf.org/html/rfc8693#section-2.1 }
      * See {@link https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims}
      */
     scope?: SpacedString;
