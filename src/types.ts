@@ -120,7 +120,7 @@ export interface JetRegistration {
      * ```"Acme, Inc."```
      * ```"http://acme.com"```
      * 
-     * Note: a custom claim
+     * Note: a custom claim.
      */
     org: StringOrURI;
 

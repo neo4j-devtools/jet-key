@@ -57,16 +57,16 @@ export const isApplicationUrn = (s:string) => /^urn:app:[a-z0-9\.-]+\/.+$/.test(
 export const isSemverRange = (s:string) => semverValidRange(s);
 
 export const isWellFormedRegistration = (reg:JetRegistration) => {
-  return isApplicationUrn(reg.aud) && isPipedString(reg.user_id) && isDomainName(reg.iss) && isEmail(reg.email) && isSemverRange(reg.ver);
+  return isApplicationUrn(reg.aud) && isPipedString(reg.sub) && isDomainName(reg.iss) && isEmail(reg.email) && isSemverRange(reg.ver);
 }
 
-export const registration = ({ iss, aud, exp, name, email, user_id, ver, nbf }: { iss: StringOrURI; aud: StringOrURI; exp: NumericDate, name:string, email:Email, user_id:PipedString, ver:SemVerRangeString, nbf?:NumericDate }):JetRegistration => {
+export const registration = ({ iss, aud, exp, name, email, sub, org, ver, nbf }: { iss: StringOrURI; aud: StringOrURI; exp: NumericDate, name:string, email:Email, sub:PipedString, org:StringOrURI, ver:SemVerRangeString, nbf?:NumericDate }):JetRegistration => {
   
   const tNow = dateToNumericDate(new Date());
   const iat = tNow;
   const jti = shortid.generate()
   const impliedNbf = nbf || iat;
 
-  return { iss, iat, aud, jti, exp, nbf:impliedNbf, name, email, user_id, ver }
+  return { iss, iat, aud, jti, exp, nbf:impliedNbf, name, email, org, sub, ver }
 }
 
