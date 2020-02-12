@@ -44,15 +44,11 @@ require('yargs')
       type: 'string',
       describe: 'application specific grants unlocked by the key'
     })
-    .option('nbf', {
-      type: 'string',
-      describe: 'moment before the key becomes valid (ISO 8601 date)'
-    }).coerce('nbf', (arg) => moment(arg).toDate())
     .option('exp', {
       type: 'string',
       describe: 'moment when the key becomes invalid (ISO 8601 date)'
-    })
-    .group(['pub', 'aud', 'ver', 'scope', 'nbf', 'exp'], 'Application info:')
+    }).coerce('exp', (arg) => moment(arg).toDate())
+    .group(['pub', 'aud', 'ver', 'scope', 'exp'], 'Application info:')
     .option('extension', )
   }, function (argv) {
     prompts.override(argv);
@@ -111,15 +107,6 @@ require('yargs')
           },
           {
             type: 'date',
-            name: 'nbf',
-            message: 'Not valid before',
-            initial: new Date(),
-            mask: "YYYY-MM-DD",
-            validate: date => now.isBefore(date) ? true : 'Not in the past',
-            format: date => moment(date).unix()
-          },
-          {
-            type: 'date',
             name: 'exp',
             message: 'Expires after',
             initial: moment().add(1, 'y').toDate(),
@@ -130,7 +117,7 @@ require('yargs')
         ]);
       
         const payload = jet.registration(response);
-        console.log(JSON.stringify(payload));
+        console.log(JSON.stringify(payload,null, 2));
       })();
   })
   .help()

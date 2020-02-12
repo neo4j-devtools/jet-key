@@ -1,6 +1,9 @@
 {
   "version": "0.1.0",
   "license": "MIT",
+  "bin": {
+    "jet-key": "./bin/cli.js"
+  },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
