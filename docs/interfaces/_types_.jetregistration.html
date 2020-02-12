@@ -118,7 +118,7 @@
 					<div class="tsd-signature tsd-kind-icon">aud<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#stringoruri" class="tsd-signature-type">StringOrURI</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/f398639/src/types.ts#L59">types.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/64d7305/src/types.ts#L59">types.ts:59</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -134,10 +134,10 @@
 							<li>&#39;namespace&#39; identifies the publisher by npm registry.</li>
 							<li>&#39;app&#39; is a publisher scoped unique name.</li>
 						</ul>
-						<p>For example, these are all equivalent:</p>
-						<pre><code><span class="hljs-string">"urn:app:neo4j.com/neo4j-desktop"</span>
-<span class="hljs-string">"neo4j.com/neo4j-desktop"</span>
-<span class="hljs-string">"@neo4j/neo4j-desktop"</span></code></pre><p>See <a href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.3" class="external">https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.3</a></p>
+						<p>For example, any of these variations:</p>
+						<pre><code><span class="hljs-string">"aud"</span>:<span class="hljs-string">"urn:app:neo4j.com/neo4j-desktop"</span>
+<span class="hljs-string">"aud"</span>:<span class="hljs-string">"neo4j.com/neo4j-desktop"</span>
+<span class="hljs-string">"aud"</span>:<span class="hljs-string">"@neo4j/neo4j-desktop"</span></code></pre><p>See <a href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.3" class="external">https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.3</a></p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -146,7 +146,7 @@
 					<div class="tsd-signature tsd-kind-icon">email<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#email" class="tsd-signature-type">Email</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/f398639/src/types.ts#L131">types.ts:131</a></li>
+							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/64d7305/src/types.ts#L131">types.ts:131</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -154,7 +154,7 @@
 							<p>Email: the registrant&#39;s email address.</p>
 						</div>
 						<p>For example,
-						<code>&quot;bob@build.it&quot;</code></p>
+						<code>&quot;email&quot;:&quot;bob@build.it&quot;</code></p>
 						<p>See <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims" class="external">https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims</a></p>
 					</div>
 				</section>
@@ -164,7 +164,7 @@
 					<div class="tsd-signature tsd-kind-icon">exp<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#numericdate" class="tsd-signature-type">NumericDate</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/f398639/src/types.ts#L84">types.ts:84</a></li>
+							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/64d7305/src/types.ts#L84">types.ts:84</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -172,7 +172,7 @@
 							<p>Expiration: Specifies the exact moment when the key will become invalid.</p>
 						</div>
 						<p>For example,
-						<code>1574760713</code></p>
+						<code>&quot;exp&quot;:1574760713</code></p>
 						<p>See <a href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.4" class="external">https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.4</a></p>
 					</div>
 				</section>
@@ -182,7 +182,7 @@
 					<div class="tsd-signature tsd-kind-icon">iat<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#numericdate" class="tsd-signature-type">NumericDate</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/f398639/src/types.ts#L36">types.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/64d7305/src/types.ts#L36">types.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -190,7 +190,7 @@
 							<p>Issued At Time: When the key was issued.</p>
 						</div>
 						<p>For example,
-						<code>1574760713</code></p>
+						<code>&quot;iat&quot;:1574760713</code></p>
 						<p>See <a href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-2" class="external">https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-2</a></p>
 					</div>
 				</section>
@@ -200,7 +200,7 @@
 					<div class="tsd-signature tsd-kind-icon">iss<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#stringoruri" class="tsd-signature-type">StringOrURI</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/f398639/src/types.ts#L26">types.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/64d7305/src/types.ts#L26">types.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -209,7 +209,7 @@
 							Should be a fully qualified domain name.</p>
 						</div>
 						<p>For example,
-						<code>&quot;neo4j.com&quot;.</code></p>
+						<code>&quot;iss&quot;:&quot;neo4j.com&quot;.</code></p>
 						<p>See <a href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.1" class="external">https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.1</a></p>
 					</div>
 				</section>
@@ -219,7 +219,7 @@
 					<div class="tsd-signature tsd-kind-icon">jti<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#base64string" class="tsd-signature-type">Base64String</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/f398639/src/types.ts#L111">types.ts:111</a></li>
+							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/64d7305/src/types.ts#L111">types.ts:111</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -228,10 +228,10 @@
 						</div>
 						<p>Should be a string. Base64 is recommended.</p>
 						<p>For example:</p>
-						<pre><code><span class="hljs-number">23</span>TplPdS
-<span class="hljs-number">46</span>Juzcyx
-dBvJIh-H
-<span class="hljs-number">2</span>WEKaVNO</code></pre><p>See <a href="https://tools.ietf.org/html/rfc7519#section-4.1.7" class="external">https://tools.ietf.org/html/rfc7519#section-4.1.7</a></p>
+						<pre><code><span class="hljs-string">"jti"</span><span class="hljs-symbol">:</span><span class="hljs-number">23</span>TplPdS
+<span class="hljs-string">"jti"</span><span class="hljs-symbol">:</span><span class="hljs-number">46</span>Juzcyx
+<span class="hljs-string">"jti"</span><span class="hljs-symbol">:dBvJIh-H</span>
+<span class="hljs-string">"jti"</span><span class="hljs-symbol">:</span><span class="hljs-number">2</span>WEKaVNO</code></pre><p>See <a href="https://tools.ietf.org/html/rfc7519#section-4.1.7" class="external">https://tools.ietf.org/html/rfc7519#section-4.1.7</a></p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -240,7 +240,7 @@ dBvJIh-H
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/f398639/src/types.ts#L121">types.ts:121</a></li>
+							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/64d7305/src/types.ts#L121">types.ts:121</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -248,7 +248,7 @@ dBvJIh-H
 							<p>Name: the full name of the registrant for whom the key is issued.</p>
 						</div>
 						<p>For example,
-						<code>&quot;Bob the Builder&quot;</code></p>
+						<code>&quot;name&quot;:&quot;Bob the Builder&quot;</code></p>
 						<p>See <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims" class="external">https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims</a></p>
 					</div>
 				</section>
@@ -258,7 +258,7 @@ dBvJIh-H
 					<div class="tsd-signature tsd-kind-icon">nbf<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#numericdate" class="tsd-signature-type">NumericDate</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/f398639/src/types.ts#L94">types.ts:94</a></li>
+							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/64d7305/src/types.ts#L94">types.ts:94</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -266,7 +266,7 @@ dBvJIh-H
 							<p>Not Before Time: Specifies the exact moment before the key becomes valid.</p>
 						</div>
 						<p>For example,
-						<code>1574760713</code></p>
+						<code>&quot;nbf&quot;:1574760713</code></p>
 						<p>See <a href="https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.5" class="external">https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.5</a></p>
 					</div>
 				</section>
@@ -276,7 +276,7 @@ dBvJIh-H
 					<div class="tsd-signature tsd-kind-icon">org<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#stringoruri" class="tsd-signature-type">StringOrURI</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/f398639/src/types.ts#L146">types.ts:146</a></li>
+							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/64d7305/src/types.ts#L146">types.ts:146</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -285,8 +285,8 @@ dBvJIh-H
 							or a URI for the organiation.</p>
 						</div>
 						<p>For example, either of:</p>
-						<pre><code><span class="hljs-string">"AAA Builders."</span>
-<span class="hljs-string">"http://built.it"</span></code></pre><p>Note: a custom claim.</p>
+						<pre><code><span class="hljs-string">"org"</span>:<span class="hljs-string">"AAA Builders."</span>
+<span class="hljs-string">"org"</span>:<span class="hljs-string">"http://built.it"</span></code></pre><p>Note: a custom claim.</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -295,7 +295,7 @@ dBvJIh-H
 					<div class="tsd-signature tsd-kind-icon">pub<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#stringoruri" class="tsd-signature-type">StringOrURI</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/f398639/src/types.ts#L74">types.ts:74</a></li>
+							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/64d7305/src/types.ts#L74">types.ts:74</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -304,8 +304,8 @@ dBvJIh-H
 							or a URI for the publisher.</p>
 						</div>
 						<p>For example, either of:</p>
-						<pre><code><span class="hljs-string">"Acme, Inc."</span>
-<span class="hljs-string">"http://acme.com"</span></code></pre><p>Note: a custom claim.</p>
+						<pre><code><span class="hljs-string">"pub"</span>:<span class="hljs-string">"Acme, Inc."</span>
+<span class="hljs-string">"pub"</span>:<span class="hljs-string">"http://acme.com"</span></code></pre><p>Note: a custom claim.</p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -314,7 +314,7 @@ dBvJIh-H
 					<div class="tsd-signature tsd-kind-icon">scope<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#spacedstring" class="tsd-signature-type">SpacedString</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/f398639/src/types.ts#L200">types.ts:200</a></li>
+							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/64d7305/src/types.ts#L202">types.ts:202</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -322,11 +322,11 @@ dBvJIh-H
 							<p>Scope: application specific grants given to the registrant.</p>
 						</div>
 						<p>For example,
-						<code>pro experimental sitewide</code></p>
+						<code>&quot;scope&quot;:&quot;pro experimental sitewide&quot;</code></p>
 						<p>See:</p>
 						<ul>
 							<li><a href="https://tools.ietf.org/html/rfc6749#section-3.3" class="external">https://tools.ietf.org/html/rfc6749#section-3.3</a></li>
-							<li><a href="https://tools.ietf.org/html/rfc8693#section-2.1" class="external"></a></li>
+							<li><a href="https://tools.ietf.org/html/rfc8693#section-2.1" class="external">https://tools.ietf.org/html/rfc8693#section-2.1</a></li>
 							<li><a href="https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims" class="external">https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims</a></li>
 						</ul>
 					</div>
@@ -337,7 +337,7 @@ dBvJIh-H
 					<div class="tsd-signature tsd-kind-icon">sub<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#pipedstring" class="tsd-signature-type">PipedString</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/f398639/src/types.ts#L170">types.ts:170</a></li>
+							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/64d7305/src/types.ts#L172">types.ts:172</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -356,8 +356,11 @@ dBvJIh-H
 						<pre><code><span class="hljs-string">"sub"</span>:<span class="hljs-string">"google-oauth2|123456"</span>
 <span class="hljs-string">"sub"</span>:<span class="hljs-string">"self|7A8CF3A4-272B-46C9-931D-CBD9BCFA4045"</span>
 <span class="hljs-string">"sub"</span>:<span class="hljs-string">"mkto|AZ24L2B"</span>
-<span class="hljs-string">"sub"</span>:<span class="hljs-string">"twitter|HoratioDear"</span></code></pre><p>See <a href="https://tools.ietf.org/html/rfc7519#section-4.1.2 " class="external"> IETF &quot;sub&quot; claim</a>
-						See <a href="https://auth0.com/docs/users/normalized/auth0/identify-users " class="external"> user_id format</a></p>
+<span class="hljs-string">"sub"</span>:<span class="hljs-string">"twitter|HoratioDear"</span></code></pre><p>See:</p>
+						<ul>
+							<li><a href="https://tools.ietf.org/html/rfc7519#section-4.1.2 " class="external"> IETF &quot;sub&quot; claim</a></li>
+							<li><a href="https://auth0.com/docs/users/normalized/auth0/identify-users " class="external"> user_id format</a></li>
+						</ul>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
@@ -366,7 +369,7 @@ dBvJIh-H
 					<div class="tsd-signature tsd-kind-icon">ver<span class="tsd-signature-symbol">:</span> <a href="../modules/_types_.html#semverrangestring" class="tsd-signature-type">SemVerRangeString</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/f398639/src/types.ts#L186">types.ts:186</a></li>
+							<li>Defined in <a href="https://github.com/neo4j-apps/jet-key/blob/64d7305/src/types.ts#L188">types.ts:188</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -374,9 +377,9 @@ dBvJIh-H
 							<p>Version: SemVer range of versions enabled by the key.</p>
 						</div>
 						<p>Examples:</p>
-						<pre><code><span class="hljs-number">1.</span>x
-&gt;=<span class="hljs-number">2.5</span><span class="hljs-number">.0</span>
-<span class="hljs-number">5.0</span><span class="hljs-number">.0</span> - <span class="hljs-number">7.2</span><span class="hljs-number">.3</span></code></pre><p>See <a href="https://devhints.io/semver " class="external"> SemvVer cheatsheet</a></p>
+						<pre><code><span class="hljs-string">"ver"</span>:<span class="hljs-string">"1.x"</span>
+<span class="hljs-string">"ver"</span>:<span class="hljs-string">"&gt;=2.5.0"</span>
+<span class="hljs-string">"ver"</span>:<span class="hljs-string">"5.0.0 - 7.2.3"</span></code></pre><p>See <a href="https://devhints.io/semver " class="external"> SemvVer cheatsheet</a></p>
 						<p>See <a href="https://semver.npmjs.com " class="external"> SemVer Calculator</a></p>
 					</div>
 				</section>
