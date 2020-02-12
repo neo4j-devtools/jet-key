@@ -32,7 +32,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "jet-key",
+  "name": "@neo4j-apps/jet-key",
   "author": "Andreas Kollegger",
   "module": "dist/jet-key.esm.js",
   "devDependencies": {
