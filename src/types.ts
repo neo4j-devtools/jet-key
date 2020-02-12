@@ -19,7 +19,7 @@ export interface JetRegistration {
    * Should be a fully qualified domain name.
    *
    * For example,
-   * ```"neo4j.com".```
+   * ```"iss":"neo4j.com".```
    *
    * See {@link https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.1}
    */
@@ -29,7 +29,7 @@ export interface JetRegistration {
    * Issued At Time: When the key was issued.
    *
    * For example,
-   * ```1574760713```
+   * ```"iat":1574760713```
    *
    * See {@link https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-2}
    */
@@ -47,11 +47,11 @@ export interface JetRegistration {
    * - 'namespace' identifies the publisher by npm registry.
    * - 'app' is a publisher scoped unique name.
    *
-   * For example, these are all equivalent:
+   * For example, any of these variations:
    * ```
-   * "urn:app:neo4j.com/neo4j-desktop"
-   * "neo4j.com/neo4j-desktop"
-   * "@neo4j/neo4j-desktop"
+   * "aud":"urn:app:neo4j.com/neo4j-desktop"
+   * "aud":"neo4j.com/neo4j-desktop"
+   * "aud":"@neo4j/neo4j-desktop"
    * ```
    *
    * See {@link https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.3}
@@ -65,8 +65,8 @@ export interface JetRegistration {
    * For example, either of:
    *
    * ```
-   * "Acme, Inc."
-   * "http://acme.com"
+   * "pub":"Acme, Inc."
+   * "pub":"http://acme.com"
    * ```
    *
    * Note: a custom claim.
@@ -77,7 +77,7 @@ export interface JetRegistration {
    * Expiration: Specifies the exact moment when the key will become invalid.
    *
    * For example,
-   * ```1574760713```
+   * ```"exp":1574760713```
    *
    * See {@link https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.4}
    */
@@ -87,7 +87,7 @@ export interface JetRegistration {
    * Not Before Time: Specifies the exact moment before the key becomes valid.
    *
    * For example,
-   * ```1574760713```
+   * ```"nbf":1574760713```
    *
    * See {@link https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32#section-4.1.5}
    */
@@ -100,10 +100,10 @@ export interface JetRegistration {
    *
    * For example:
    * ```
-   * 23TplPdS
-   * 46Juzcyx
-   * dBvJIh-H
-   * 2WEKaVNO
+   * "jti":23TplPdS
+   * "jti":46Juzcyx
+   * "jti":dBvJIh-H
+   * "jti":2WEKaVNO
    * ```
    *
    * See {@link https://tools.ietf.org/html/rfc7519#section-4.1.7}
@@ -114,7 +114,7 @@ export interface JetRegistration {
    * Name: the full name of the registrant for whom the key is issued.
    *
    * For example,
-   * ```"Bob the Builder"```
+   * ```"name":"Bob the Builder"```
    *
    * See {@link https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims}
    */
@@ -124,7 +124,7 @@ export interface JetRegistration {
    * Email: the registrant's email address.
    *
    * For example,
-   * ```"bob@build.it"```
+   * ```"email":"bob@build.it"```
    *
    * See {@link https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims}
    */
@@ -137,8 +137,8 @@ export interface JetRegistration {
    * For example, either of:
    *
    * ```
-   * "AAA Builders."
-   * "http://built.it"
+   * "org":"AAA Builders."
+   * "org":"http://built.it"
    * ```
    *
    * Note: a custom claim.
@@ -164,8 +164,10 @@ export interface JetRegistration {
    * "sub":"twitter|HoratioDear"
    * ```
    *
-   * See {@link https://tools.ietf.org/html/rfc7519#section-4.1.2 | IETF "sub" claim}
-   * See {@link https://auth0.com/docs/users/normalized/auth0/identify-users | user_id format}
+   * See:
+   *
+   * - {@link https://tools.ietf.org/html/rfc7519#section-4.1.2 | IETF "sub" claim}
+   * - {@link https://auth0.com/docs/users/normalized/auth0/identify-users | user_id format}
    */
   sub?: PipedString;
 
@@ -174,9 +176,9 @@ export interface JetRegistration {
    *
    * Examples:
    * ```
-   * 1.x
-   * >=2.5.0
-   * 5.0.0 - 7.2.3
+   * "ver":"1.x"
+   * "ver":">=2.5.0"
+   * "ver":"5.0.0 - 7.2.3"
    * ```
    *
    * See {@link https://devhints.io/semver | SemvVer cheatsheet}
@@ -189,12 +191,12 @@ export interface JetRegistration {
    * Scope: application specific grants given to the registrant.
    *
    * For example,
-   * ```pro experimental sitewide```
+   * ```"scope":"pro experimental sitewide"```
    *
    * See:
    *
    * - {@link https://tools.ietf.org/html/rfc6749#section-3.3}
-   * - {@link https://tools.ietf.org/html/rfc8693#section-2.1 }
+   * - {@link https://tools.ietf.org/html/rfc8693#section-2.1}
    * - {@link https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims}
    */
   scope?: SpacedString;

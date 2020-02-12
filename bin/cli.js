@@ -130,7 +130,7 @@ require('yargs')
         ]);
       
         const payload = jet.registration(response);
-        console.dir(payload);
+        console.log(JSON.stringify(payload));
       })();
   })
   .help()
