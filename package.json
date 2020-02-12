@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "MIT",
   "bin": {
     "jet-key": "./bin/cli.js"
@@ -56,5 +56,12 @@
     "semver": "^7.1.2",
     "shortid": "^2.2.15",
     "yargs": "^15.1.0"
+  },
+  "np": {
+    "yarn": false,
+    "contents": "dist"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
