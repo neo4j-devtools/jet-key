@@ -1,23 +1,43 @@
-import { registration, dateToNumericDate, isDomainName, isApplicationUrn, isEmail, isPipedString, isSemverRange } from '../src';
+import {
+  registration,
+  dateToNumericDate,
+  isDomainName,
+  isApplicationUrn,
+  isEmail,
+  isPipedString,
+  isSemverRange,
+} from '../src';
 import moment from 'moment';
 
 const faker = require('faker');
 
+const fakeOrg = () => faker.company.companyName();
 const fakeName = () => faker.name.findName();
-const emailFor = (name:string):string => `${name.replace('. ','_').replace(/\s/g,'.').toLowerCase()}@${faker.internet.domainName()}`
-const twitterAccount = ():string => `twitter|${faker.internet.userName()}`;
+const emailFor = (name: string): string =>
+  `${name
+    .replace('. ', '_')
+    .replace(/\s/g, '.')
+    .toLowerCase()}@${faker.internet.domainName()}`;
+const twitterAccount = (): string => `twitter|${faker.internet.userName()}`;
 
 const fakeRegistration = () => {
   const iss = 'neo4j.com';
-  const aud = 'urn:app:neo4j.com/neo4j-desktop';
-  const exp = dateToNumericDate(moment().add(1, 'year').toDate());
+  const pub = iss;
+  const aud = `urn:app:${pub}/neo4j-desktop`;
+  const nbf = dateToNumericDate(moment().toDate());
+  const exp = dateToNumericDate(
+    moment()
+      .add(1, 'year')
+      .toDate()
+  );
+  const org = fakeOrg();
   const name = fakeName();
   const email = emailFor(name);
-  const user_id = twitterAccount();
-  const ver = ">=1.2.0"
+  const sub = twitterAccount();
+  const ver = '>=1.2.0';
 
-  return { iss, aud, exp, email, name, user_id, ver }
-}
+  return { iss, pub, aud, ver, nbf, exp, name, sub, email, org };
+};
 
 describe('JSON Entitlement Tokens', () => {
   it('are well defined', () => {
@@ -29,7 +49,7 @@ describe('JSON Entitlement Tokens', () => {
     expect(aJet.iat).toBeDefined();
     expect(aJet.name).toBeDefined();
     expect(aJet.email).toBeDefined();
-    expect(aJet.user_id).toBeDefined();
+    expect(aJet.sub).toBeDefined();
     expect(aJet.ver).toBeDefined();
     expect(aJet.jti).toBeDefined();
   });
@@ -37,31 +57,28 @@ describe('JSON Entitlement Tokens', () => {
 
 describe('can validate field content', () => {
   it('checks for valid domains', () => {
-    expect( isDomainName(faker.internet.domainName()) ).toBeTruthy();
-    expect( isDomainName(faker.internet.ip()) ).toBeFalsy();
+    expect(isDomainName(faker.internet.domainName())).toBeTruthy();
+    expect(isDomainName(faker.internet.ip())).toBeFalsy();
   });
   it('checks for valid application URNs', () => {
-    expect ( isApplicationUrn('urn:app:neo4j.com/neo4j-desktop') ).toBeTruthy();
-    expect ( isApplicationUrn('neo4j.com/neo4j-desktop') ).toBeFalsy();
+    expect(isApplicationUrn('urn:app:neo4j.com/neo4j-desktop')).toBeTruthy();
+    expect(isApplicationUrn('neo4j.com/neo4j-desktop')).toBeFalsy();
   });
   it('checks for valid email address', () => {
-    expect ( isEmail('andreas@neo4j.com') ).toBeTruthy();
-    expect ( isEmail('nobody@nowhere') ).toBeFalsy();
+    expect(isEmail('andreas@neo4j.com')).toBeTruthy();
+    expect(isEmail('nobody@nowhere')).toBeFalsy();
   });
   it('checks for valid user_ids', () => {
-    expect( isPipedString( "google-oauth2|123456") ).toBeTruthy();
-    expect( isPipedString( "self|7A8CF3A4-272B-46C9-931D-CBD9BCFA4045" )).toBeTruthy();
-    expect( isPipedString( "mkto|AZ24L2B" )).toBeTruthy();
+    expect(isPipedString('google-oauth2|123456')).toBeTruthy();
+    expect(isPipedString('self|7A8CF3A4-272B-46C9-931D-CBD9BCFA4045')).toBeTruthy();
+    expect(isPipedString('mkto|AZ24L2B')).toBeTruthy();
   });
   it('checks for valid semver range', () => {
-    expect( isSemverRange( "1.x") ).toBeTruthy();
-    expect( isSemverRange( ">=1.2.0") ).toBeTruthy();
-    expect( isSemverRange( "^0.1.0") ).toBeTruthy();
-    expect( isSemverRange( "~0.1.0") ).toBeTruthy();
-    expect( isSemverRange( "<2.0.0") ).toBeTruthy();
-    expect( isSemverRange( "a.1.x") ).toBeFalsy();
+    expect(isSemverRange('1.x')).toBeTruthy();
+    expect(isSemverRange('>=1.2.0')).toBeTruthy();
+    expect(isSemverRange('^0.1.0')).toBeTruthy();
+    expect(isSemverRange('~0.1.0')).toBeTruthy();
+    expect(isSemverRange('<2.0.0')).toBeTruthy();
+    expect(isSemverRange('a.1.x')).toBeFalsy();
   });
-  it('checks for well-formed registration (JET payload)', () => {
-
-  })
 });

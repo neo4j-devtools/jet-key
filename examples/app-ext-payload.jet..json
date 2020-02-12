@@ -13,7 +13,7 @@
     "sub": "acme|1234adec",              // unique user id (up to the aud to decipher, but a standard format)
     "aud": "@acme/ultimate-widget",      // publisher/application
     "pub": "Acme International, Inc.",   // full name of application publisher
-    "@acme/ultimate-widget":             // app-specific payload extension
+    "@acme/ultimate-widget":             // app-specific payload extension. shape is up to the publisher
  "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJzb21lS2V5SWQiLCJpYXQiOjE1MTYyMzkwMjIsInNjb3BlIjoiRlhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMCIsInZlciI6IjAuMS42IiwiZXhwIjoiMjAyMC0wNS0zMSJ9.h2j2k6GmXds46q2TBCMH42u5TDfBUdNN2NTuw2fthuGeGd8bwORTLvkn4W7Gz4kac4j4muF0yd3rO95DQwkdeQ",
     "ver": ">=1.0 <2.0",                 // semver version range of the application (1.0 and higher, but less than 2.0)
     "scope": "pro",                      // app-specific flags (space delimited words)
