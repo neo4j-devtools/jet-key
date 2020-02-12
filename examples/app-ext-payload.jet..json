@@ -1,0 +1,25 @@
+
+{   // This example shows how an application might extend
+    // the information conveyed in a JET by adding a key
+    // that matches the `aud` value, where an arbitrary
+    // JSON structure can be attached.
+    //
+    // Here, the structure itself is an encoded payload. 
+    //
+    // (Yes, these comments invalidate the JSON.)
+    "email": "bob.agarwal@acme.com",     // registrant email
+    "org": "acme.com",                   // registrant org
+    "reg": "Bob Agarwal",                // registrant full name
+    "sub": "acme|1234adec",              // unique user id (up to the aud to decipher, but a standard format)
+    "aud": "@acme/ultimate-widget",      // publisher/application
+    "pub": "Acme International, Inc.",   // full name of application publisher
+    "@acme/ultimate-widget":             // app-specific payload extension
+ "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJzb21lS2V5SWQiLCJpYXQiOjE1MTYyMzkwMjIsInNjb3BlIjoiRlhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMFhYMCIsInZlciI6IjAuMS42IiwiZXhwIjoiMjAyMC0wNS0zMSJ9.h2j2k6GmXds46q2TBCMH42u5TDfBUdNN2NTuw2fthuGeGd8bwORTLvkn4W7Gz4kac4j4muF0yd3rO95DQwkdeQ",
+    "ver": ">=1.0 <2.0",                 // semver version range of the application (1.0 and higher, but less than 2.0)
+    "scope": "pro",                      // app-specific flags (space delimited words)
+    "iss": "acme.com",                   // issued and signed by (usually the same as `aud`)
+    "exp": 1590929940,                   // expiration timestamp
+    "nbf": 1581332342,                   // not valid before timestamp
+    "iat": 1581332342,                   // issued at timestampe
+    "jti": "wFFwPQLxc"                   // pseudo-random unique identifier for generated key
+ }
