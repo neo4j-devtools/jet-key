@@ -1,9 +1,10 @@
-import { JetRegistration, StringOrURI, NumericDate, Email, PipedString, SemVerRangeString } from './types';
+import { JetRegistration, StringOrURI, NumericDate, Email, PipedString, SemVerRangeString, URI } from './types';
 
 import shortid from 'shortid';
 import { Moment } from 'moment';
 
 const semverValidRange = require('semver/ranges/valid');
+const jsra = require('jsrsasign');
 
 /**
  * Convert a standard javascript Date into a NumericDate.
@@ -75,6 +76,11 @@ export const isWellFormedRegistration = (reg: JetRegistration) => {
   );
 };
 
+/**
+ * Generates a complete, well-formed JET registration payload.
+ *
+ * @param payload required and optional fields of the payload
+ */
 export const registration = ({
   iss,
   pub,
@@ -87,6 +93,8 @@ export const registration = ({
   ver,
   nbf,
   scope,
+  website,
+  registry,
 }: {
   iss: StringOrURI;
   pub?: StringOrURI;
@@ -99,6 +107,8 @@ export const registration = ({
   ver: SemVerRangeString;
   nbf?: NumericDate;
   scope?: string[];
+  website?: URI;
+  registry?: StringOrURI;
 }): JetRegistration => {
   const tNow = dateToNumericDate(new Date());
   const iat = tNow;
@@ -118,7 +128,18 @@ export const registration = ({
     iat,
     jti,
     exp,
+    website,
+    registry,
     nbf: impliedNbf,
     ...(joinedScope && { scope: joinedScope }),
   };
+};
+
+export const sign = (secret: string, registration: JetRegistration) => {
+  const algo = 'HS256';
+  var oHeader = { alg: algo, typ: 'JWT' };
+  var sHeader = JSON.stringify(oHeader);
+  var sPayload = JSON.stringify(registration);
+  console.log(secret, registration);
+  return jsra.jws.JWS.sign(algo, sHeader, sPayload, { utf8: secret });
 };

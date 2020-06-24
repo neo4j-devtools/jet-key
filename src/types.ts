@@ -9,6 +9,8 @@ export type SpacedString = string;
 export type PipedString = string;
 export type SemVerRangeString = string;
 
+/** See {@link https://tools.ietf.org/html/rfc3986} */
+export type URI = string;
 /**
  * JetRegistation is the payload which identifies the registrant (person for whom the key is issued)
  * and the application to which the key can be applied.
@@ -200,4 +202,18 @@ export interface JetRegistration {
    * - {@link https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims}
    */
   scope?: SpacedString;
+
+  /**
+   * Website: where to find information about the application.
+   *
+   * - {@link https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims}
+   */
+  website?: URI;
+
+  /**
+   * Registry: distribution location of the application.
+   *
+   * A custom claim.
+   */
+  registry?: URI | 'github' | 'npm' | 'maven';
 }
