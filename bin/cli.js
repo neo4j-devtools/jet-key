@@ -75,7 +75,7 @@ const promptForMissingCommonArgs = (argv) => {
         type: 'text',
         name: 'ver',
         initial: prev => '1.x',
-        message: `What is the semver range of the applcation version?`,
+        message: `What is the semver range of the application version?`,
         validate: ver => jet.isSemverRange(ver) ? true : 'Invalid semver'
       },
       {
@@ -127,9 +127,14 @@ require('yargs')
     (yargs) => {
       yargs.option('secret', {
         type: 'string',
-        describe: 'cryptographic key for HMAC signing'
+        describe: 'cryptographic key for signing'
       })
       .demandOption(["secret"])
+      .option('algo', {
+        type: 'string',
+        describe: 'cryptographic algorithm to use for signing',
+        choices: ['HS256','HS384','HS512','RS256','RS384','RS512','ES256','ES384','ES512','PS256','PS384','PS512','none']
+      })
       return commonArgs(yargs);
     }
     , 
@@ -138,7 +143,7 @@ require('yargs')
       console.log(response);
       const secret = argv.secret;
       const payload = jet.registration(response);
-      const token = jet.sign(secret, payload);
+      const token = jet.sign(secret, payload, argv.algo);
       console.log(JSON.stringify(token,null, 2));
     });
 })

@@ -1,4 +1,13 @@
-import { JetRegistration, StringOrURI, NumericDate, Email, PipedString, SemVerRangeString, URI } from './types';
+import {
+  JetRegistration,
+  StringOrURI,
+  NumericDate,
+  Email,
+  PipedString,
+  SemVerRangeString,
+  URI,
+  JWSAlgorithm,
+} from './types';
 
 import shortid from 'shortid';
 import { Moment } from 'moment';
@@ -135,8 +144,7 @@ export const registration = ({
   };
 };
 
-export const sign = (secret: string, registration: JetRegistration) => {
-  const algo = 'HS256';
+export const sign = (secret: string, registration: JetRegistration, algo: JWSAlgorithm = 'HS256') => {
   var oHeader = { alg: algo, typ: 'JWT' };
   var sHeader = JSON.stringify(oHeader);
   var sPayload = JSON.stringify(registration);

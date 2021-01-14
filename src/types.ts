@@ -11,6 +11,23 @@ export type SemVerRangeString = string;
 
 /** See {@link https://tools.ietf.org/html/rfc3986} */
 export type URI = string;
+
+/** See {@link https://tools.ietf.org/html/rfc7518#section-3.1} */
+export type JWSAlgorithm =
+  | 'HS256'
+  | 'HS384'
+  | 'HS512'
+  | 'RS256'
+  | 'RS384'
+  | 'RS512'
+  | 'ES256'
+  | 'ES384'
+  | 'ES512'
+  | 'PS256'
+  | 'PS384'
+  | 'PS512'
+  | 'none';
+
 /**
  * JetRegistation is the payload which identifies the registrant (person for whom the key is issued)
  * and the application to which the key can be applied.
