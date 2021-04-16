@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
-    "jsrsasign": "^8.0.12",
+    "jsrsasign": "^10.2.0",
     "moment": "^2.24.0",
     "prompts": "^2.3.0",
     "semver": "^7.1.2",
