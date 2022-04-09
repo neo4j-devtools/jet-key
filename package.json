@@ -53,7 +53,7 @@
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
     "jsrsasign": "^8.0.12",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "prompts": "^2.3.0",
     "semver": "^7.1.2",
     "shortid": "^2.2.15",
